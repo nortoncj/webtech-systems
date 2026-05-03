@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{Product Name}} - WebTech Ninjas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: #2C2C2C;
+            background: linear-gradient(135deg, #FEFCFC 0%, #F5E6E8 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(139, 21, 56, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 16px 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 20px;
+            color: #8B1538;
+            text-decoration: none;
+        }
+
+        .ninja-star {
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(45deg, #8B1538, #B8336A);
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #2C2C2C;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #8B1538;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-top: 80px;
+            padding: 48px 0;
+        }
+
+        .product-hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+
+        .product-image {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .product-info {
+            padding: 32px;
+        }
+
+        .product-category {
+            color: #7B4B94;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        .product-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: #2C2C2C;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .product-price {
+            font-size: 24px;
+            font-weight: 700;
+            color: #8B1538;
+            margin-bottom: 24px;
+        }
+
+        .product-description {
+            font-size: 16px;
+            color: #2C2C2C;
+            margin-bottom: 32px;
+            line-height: 1.7;
+        }
+
+        .product-features {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+
+        .product-features li {
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 500;
+        }
+
+        .product-features li::before {
+            content: "✦";
+            color: #8B1538;
+            font-size: 16px;
+        }
+
+        /* Email Capture Form */
+        .email-capture {
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid #E8B4B8;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+
+        .email-capture h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: #2C2C2C;
+            margin-bottom: 12px;
+        }
+
+        .email-capture p {
+            color: #2C2C2C;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .email-form {
+            display: flex;
+            gap: 12px;
+        }
+
+        .email-input {
+            flex: 1;
+            padding: 12px 16px;
+            border: 2px solid #E8B4B8;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .email-input:focus {
+            border-color: #8B1538;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #8B1538, #B8336A);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(139, 21, 56, 0.3);
+        }
+
+        .cta-button:active {
+            transform: translateY(0);
+        }
+
+        /* Affiliate Notice */
+        .affiliate-notice {
+            background: rgba(123, 75, 148, 0.1);
+            border: 1px solid rgba(123, 75, 148, 0.2);
+            border-radius: 8px;
+            padding: 16px;
+            margin-top: 24px;
+            font-size: 14px;
+            color: #2C2C2C;
+        }
+
+        .affiliate-notice strong {
+            color: #7B4B94;
+        }
+
+        /* Product Details Section */
+        .product-details {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            padding: 48px;
+            margin-top: 80px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 48px;
+        }
+
+        .detail-section h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: #2C2C2C;
+            margin-bottom: 16px;
+        }
+
+        .detail-section p {
+            color: #2C2C2C;
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        /* Footer */
+        .footer {
+            background: #2C2C2C;
+            color: white;
+            padding: 48px 0;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 48px;
+        }
+
+        .footer-section h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: #E8B4B8;
+            margin-bottom: 16px;
+        }
+
+        .footer-section a {
+            color: #A8A8A8;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #E8B4B8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .product-hero {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .product-title {
+                font-size: 28px;
+            }
+
+            .email-form {
+                flex-direction: column;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .details-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .product-details {
+                padding: 32px 24px;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #ffffff;
+            border-top: 2px solid transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-top: 12px;
+            font-weight: 500;
+        }
+
+        .error-message {
+            display: none;
+            background: linear-gradient(135deg, #f44336, #d32f2f);
+            color: white;
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-top: 12px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">
+                    <div class="ninja-star"></div>
+                    WebTech Ninjas
+                </a>
+                <nav class="nav-links">
+                    <a href="#services">Services</a>
+                    <a href="#portfolio">Portfolio</a>
+                    <a href="#about">About</a>
+                    <a href="#contact">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Product Hero Section -->
+            <section class="product-hero">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="Product Preview" id="productImage">
+                </div>
+                <div class="product-info">
+                    <div class="product-category" id="productCategory">Website Themes</div>
+                    <h1 class="product-title" id="productTitle">Premium E-commerce Theme</h1>
+                    <div class="product-price" id="productPrice">$49.99</div>
+                    <p class="product-description" id="productDescription">
+                        Transform your online presence with our professionally designed, conversion-optimized theme. Built with ninja precision for maximum impact and results.
+                    </p>
+                    <ul class="product-features" id="productFeatures">
+                        <li>Responsive design for all devices</li>
+                        <li>SEO optimized structure</li>
+                        <li>Lightning-fast loading speed</li>
+                        <li>Easy customization options</li>
+                        <li>Premium support included</li>
+                    </ul>
+
+                    <!-- Email Capture Form -->
+                    <div class="email-capture">
+                        <h3>Get Instant Access</h3>
+                        <p>Enter your email to receive download instructions and exclusive ninja marketing tips.</p>
+                        <form class="email-form" id="emailForm">
+                            <input type="email" class="email-input" id="emailInput" placeholder="Enter your email address" required>
+                            <button type="submit" class="cta-button" id="submitBtn">
+                                <span class="button-text">Get Access</span>
+                                <div class="loading"></div>
+                            </button>
+                        </form>
+                        <div class="success-message" id="successMessage">
+                            Success! Check your email for download instructions.
+                        </div>
+                        <div class="error-message" id="errorMessage">
+                            Something went wrong. Please try again.
+                        </div>
+                    </div>
+
+                    <!-- Affiliate Notice -->
+                    <div class="affiliate-notice">
+                        <strong>Affiliate Disclosure:</strong> This page may contain affiliate links. When you purchase through these links, we may earn a commission at no additional cost to you. We only recommend products we genuinely believe will help grow your business.
+                    </div>
+                </div>
+            </section>
+
+            <!-- Product Details Section -->
+            <section class="product-details">
+                <div class="details-grid">
+                    <div class="detail-section">
+                        <h3>What's Included</h3>
+                        <p>Everything you need to launch your professional website with ninja precision:</p>
+                        <ul style="list-style: none; padding-left: 0;">
+                            <li style="padding: 8px 0; display: flex; align-items: center; gap: 12px;">
+                                <span style="color: #8B1538; font-size: 16px;">✦</span>
+                                Complete theme files (HTML, CSS, JS)
+                            </li>
+                            <li style="padding: 8px 0; display: flex; align-items: center; gap: 12px;">
+                                <span style="color: #8B1538; font-size: 16px;">✦</span>
+                                Detailed installation guide
+                            </li>
+                            <li style="padding: 8px 0; display: flex; align-items: center; gap: 12px;">
+                                <span style="color: #8B1538; font-size: 16px;">✦</span>
+                                Customization documentation
+                            </li>
+                            <li style="padding: 8px 0; display: flex; align-items: center; gap: 12px;">
+                                <span style="color: #8B1538; font-size: 16px;">✦</span>
+                                30 days of email support
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="detail-section">
+                        <h3>Technical Specifications</h3>
+                        <p>Built with modern web standards and optimized for performance:</p>
+                        <p><strong>Compatibility:</strong> All major browsers and devices</p>
+                        <p><strong>Loading Speed:</strong> Under 3 seconds optimized</p>
+                        <p><strong>SEO Ready:</strong> Schema markup included</p>
+                        <p><strong>Framework:</strong> Built on reliable, maintainable code</p>
+                    </div>
+                    <div class="detail-section">
+                        <h3>Perfect For</h3>
+                        <p>This product is ideal for:</p>
+                        <ul style="list-style: none; padding-left: 0;">
+                            <li style="padding: 8px 0; display: flex; align-items: center; gap: 12px;">
+                                <span style="color: #8B1538; font-size: 16px;">✦</span>
+                                Small business owners
+                            </li>
+                            <li style="padding: 8px 0; display: flex; align-items: center; gap: 12px;">
+                                <span style="color: #8B1538; font-size: 16px;">✦</span>
+                                E-commerce entrepreneurs
+                            </li>
+                            <li style="padding: 8px 0; display: flex; align-items: center; gap: 12px;">
+                                <span style="color: #8B1538; font-size: 16px;">✦</span>
+                                Web developers and designers
+                            </li>
+                            <li style="padding: 8px 0; display: flex; align-items: center; gap: 12px;">
+                                <span style="color: #8B1538; font-size: 16px;">✦</span>
+                                Digital marketing agencies
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>WebTech Ninjas</h4>
+                    <p>Digital Strategy Ninjas</p>
+                    <p>We solve your digital problems with ninja precision</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <p><a href="#web-design">Web Design & Development</a></p>
+                    <p><a href="#seo">SEO Optimization</a></p>
+                    <p><a href="#social-media">Social Media Strategy</a></p>
+                    <p><a href="#digital-marketing">Digital Marketing</a></p>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <p><a href="#contact">Contact Us</a></p>
+                    <p><a href="#portfolio">View Portfolio</a></p>
+                    <p><a href="#blog">Blog</a></p>
+                    <p><a href="#resources">Resources</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Product data - can be dynamically populated
+        const productData = {
+            themes: {
+                category: "Website Themes",
+                title: "Premium E-commerce Theme",
+                price: "$49.99",
+                description: "Transform your online presence with our professionally designed, conversion-optimized theme. Built with ninja precision for maximum impact and results.",
+                features: [
+                    "Responsive design for all devices",
+                    "SEO optimized structure", 
+                    "Lightning-fast loading speed",
+                    "Easy customization options",
+                    "Premium support included"
+                ],
+                image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80"
+            },
+            shopify: {
+                category: "Shopify Themes",
+                title: "Conversion-Focused Shopify Theme",
+                price: "$79.99",
+                description: "Maximize your Shopify store's potential with our conversion-optimized theme. Designed with ninja precision to turn visitors into customers.",
+                features: [
+                    "Shopify 2.0 compatible",
+                    "Mobile-first design",
+                    "Advanced product filtering",
+                    "One-click checkout optimization",
+                    "Lifetime updates included"
+                ],
+                image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80"
+            },
+            books: {
+                category: "Digital Marketing Books",
+                title: "The Digital Ninja's Guide to Marketing",
+                price: "$29.99",
+                description: "Master the art of digital marketing with strategies that cut through the noise. Learn the ninja tactics that generate real results for small businesses.",
+                features: [
+                    "200+ pages of actionable strategies",
+                    "Real case studies and examples",
+                    "Step-by-step implementation guides",
+                    "Bonus template resources",
+                    "Author email support"
+                ],
+                image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80"
+            },
+            accessories: {
+                category: "Business Accessories",
+                title: "WebTech Ninjas Branded Merchandise",
+                price: "$19.99",
+                description: "Show your ninja spirit with our premium branded merchandise. Perfect for entrepreneurs and digital marketing professionals.",
+                features: [
+                    "Premium quality materials",
+                    "Unique ninja-inspired designs",
+                    "Multiple size options",
+                    "Fast shipping worldwide",
+                    "Satisfaction guarantee"
+                ],
+                image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80"
+            }
+        };
+
+        // Initialize product based on URL parameter or default to themes
+        function initializeProduct() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const productType = urlParams.get('type') || 'themes';
+            const product = productData[productType] || productData.themes;
+            
+            // Update product information
+            document.getElementById('productCategory').textContent = product.category;
+            document.getElementById('productTitle').textContent = product.title;
+            document.getElementById('productPrice').textContent = product.price;
+            document.getElementById('productDescription').textContent = product.description;
+            document.getElementById('productImage').src = product.image;
+            document.getElementById('productImage').alt = product.title;
+            
+            // Update features
+            const featuresList = document.getElementById('productFeatures');
+            featuresList.innerHTML = '';
+            product.features.forEach(feature => {
+                const li = document.createElement('li');
+                li.textContent = feature;
+                featuresList.appendChild(li);
+            });
+            
+            // Update page title
+            document.title = `${product.title} - WebTech Ninjas`;
+        }
+
+        // Email form submission
+        document.getElementById('emailForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('emailInput').value;
+            const submitBtn = document.getElementById('submitBtn');
+            const buttonText = submitBtn.querySelector('.button-text');
+            const loading = submitBtn.querySelector('.loading');
+            const successMessage = document.getElementById('successMessage');
+            const errorMessage = document.getElementById('errorMessage');
+            
+            // Reset messages
+            successMessage.style.display = 'none';
+            errorMessage.style.display = 'none';
+            
+            // Show loading state
+            buttonText.textContent = 'Processing...';
+            loading.style.display = 'block';
+            submitBtn.disabled = true;
+            
+            // Simulate API call (replace with actual endpoint)
+            setTimeout(() => {
+                // Here you would typically send the email to your backend
+                // For this template, we'll simulate success
+                if (email && email.includes('@')) {
+                    successMessage.style.display = 'block';
+                    document.getElementById('emailInput').value = '';
+                    
+                    // Redirect after 2 seconds (replace with your actual redirect URL)
+                    setTimeout(() => {
+                        // Replace with your actual redirect endpoint
+                        window.location.href = `/download?email=${encodeURIComponent(email)}&product=${encodeURIComponent(document.getElementById('productTitle').textContent)}`;
+                    }, 2000);
+                } else {
+                    errorMessage.style.display = 'block';
+                }
+                
+                // Reset button state
+                buttonText.textContent = 'Get Access';
+                loading.style.display = 'none';
+                submitBtn.disabled = false;
+            }, 1500);
+        });
+
+        // Initialize the product when page loads
+        document.addEventListener('DOMContentLoaded', initializeProduct);
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
