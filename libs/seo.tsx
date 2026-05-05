@@ -1,4 +1,5 @@
 // lib/metadata.ts
+import img from "@img/OpenGraph.png"
 
 type MetadataInput = {
   title?: string;
@@ -11,7 +12,7 @@ type MetadataInput = {
 export function buildMetadata({
   title,
   description,
-  image = "../../public/OpenGraph.png",
+  image = img.src,
   url = "https://webtechninjas.com",
   keywords = [],
 }: MetadataInput) {

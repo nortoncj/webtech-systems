@@ -12,7 +12,8 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Webtech Ninjas",
-  description: "Clean digital systems built for real business growth",
+  description:
+    "Clean digital systems built for real business growth. Webtech Ninjas is a leading web development agency specializing in creating innovative and high-performing websites and applications.",
 };
 
 export default function RootLayout({
@@ -22,11 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable}  h-full antialiased`}>
-      <body className="min-h-full flex flex-col">
-        
-        {children}
-        
-      </body>
+      <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
 }
