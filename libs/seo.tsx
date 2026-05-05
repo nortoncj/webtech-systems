@@ -11,7 +11,7 @@ type MetadataInput = {
 export function buildMetadata({
   title,
   description,
-  image = "../public/OpenGraph.png",
+  image = "../../public/OpenGraph.png",
   url = "https://webtechninjas.com",
   keywords = [],
 }: MetadataInput) {
