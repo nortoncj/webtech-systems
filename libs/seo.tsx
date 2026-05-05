@@ -1,5 +1,4 @@
-// lib/metadata.ts
-import img from "@img/OpenGraph.png"
+import img from "@img/OpenGraph.png";
 
 type MetadataInput = {
   title?: string;
@@ -16,10 +15,14 @@ export function buildMetadata({
   url = "https://webtechninjas.com",
   keywords = [],
 }: MetadataInput) {
-  const fullTitle = `${title + " | " || ""} Webtech Ninjas`;
+  const fullTitle = title ? `${title} | Webtech Ninjas` : "Webtech Ninjas";
+
   const fullDescription =
     description ||
     "Webtech Ninjas is a leading web development agency specializing in creating innovative and high-performing websites and applications.";
+
+  // Ensure absolute OG image URL
+  const absoluteImage = image.startsWith("http") ? image : `${url}${image}`;
 
   return {
     // -------------------------
@@ -27,6 +30,7 @@ export function buildMetadata({
     // -------------------------
     title: fullTitle,
     description: fullDescription,
+    keywords,
     alternates: {
       canonical: url,
     },
@@ -35,7 +39,7 @@ export function buildMetadata({
     },
 
     // -------------------------
-    // 🟦 OPEN GRAPH (FB, LinkedIn, Slack, Discord)
+    // 🟦 OPEN GRAPH
     // -------------------------
     openGraph: {
       title: fullTitle,
@@ -44,7 +48,7 @@ export function buildMetadata({
       siteName: "Webtech Ninjas",
       images: [
         {
-          url: image,
+          url: absoluteImage,
           width: 1200,
           height: 630,
           alt: fullTitle,
@@ -55,19 +59,18 @@ export function buildMetadata({
     },
 
     // -------------------------
-    // 🐦 TWITTER CARDS
+    // 🐦 TWITTER
     // -------------------------
     twitter: {
       card: "summary_large_image",
       title: fullTitle,
       description: fullDescription,
-      images: [image],
-      creator: "@chrisnortonjr", // optional
+      images: [absoluteImage],
+      creator: "@chrisnortonjr",
     },
 
     // -------------------------
     // 📱 iMessage / SMS / WhatsApp
-    // (these apps use OG tags automatically)
     // -------------------------
     metadataBase: new URL(url),
   };
