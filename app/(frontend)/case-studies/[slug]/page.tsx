@@ -1,3 +1,4 @@
+import CaseStudyPage from "@/components/case-studies/caseStudyPage";
 import { getCaseStudy, getRelatedPosts } from "@/sanity/sanity-utils";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -44,11 +45,9 @@ export default async function Page({ params }: Props) {
   const { slug } = await params;
   const caseStudy = await getCaseStudy(slug).catch(() => null);
   if (!caseStudy) notFound();
+  
 
-  const relatedPosts = await getRelatedPosts(
-    caseStudy._id,
-    caseStudy.categories[0]?.slug ?? "",
-  ).catch(() => []);
-
-  return <div className="">Case Study Page</div>;
+  return <div className="">
+    <CaseStudyPage caseStudy={caseStudy}  />
+  </div>;
 }
