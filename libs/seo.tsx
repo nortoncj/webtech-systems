@@ -1,4 +1,4 @@
-import img from "@img/OpenGraph.png";
+
 
 type MetadataInput = {
   title?: string;
@@ -11,7 +11,7 @@ type MetadataInput = {
 export function buildMetadata({
   title,
   description,
-  image = img.src,
+  image = "/og-image.png",
   url = "https://webtechninjas.com",
   keywords = [],
 }: MetadataInput) {
