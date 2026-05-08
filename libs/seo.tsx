@@ -1,5 +1,3 @@
-
-
 type MetadataInput = {
   title?: string;
   description?: string;
@@ -35,7 +33,8 @@ export function buildMetadata({
       canonical: url,
     },
     other: {
-      "google-site-verification": "7JxhJ8Q3PXbQgekYOnrwz4G3K6tFCe-2yIUdsZjeAhw",
+      "google-site-verification": "YqzMHIzOgPMFfzOKYOZBnVOccDAZ1jdaJ_qHKcmI5x0",
+      "msvalidate.01": "60B32BAF819A3A3DD7BD39D7BCDBDA21",
     },
 
     // -------------------------
