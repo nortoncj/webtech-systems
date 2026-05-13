@@ -1,6 +1,6 @@
-import React from 'react'
-import "@css/home/who.css"
-import Link from 'next/link';
+import React from "react";
+import "@css/home/who.css";
+import Link from "next/link";
 
 function Who() {
   return (
@@ -114,7 +114,7 @@ function Who() {
                 <strong>A website that only needs to “look nice”</strong>
                 <p>
                   Design matters, but we build for trust, usability, conversion,
-                  and performance — not decoration alone.
+                  and performance, not decoration alone.
                 </p>
               </div>
 
@@ -132,8 +132,7 @@ function Who() {
                 <strong>Endless complexity without business clarity</strong>
                 <p>
                   If the offer, process, or goals are still foggy, we help
-                  create clarity first — because strong systems need strong
-                  direction.
+                  create clarity first. Strong systems need strong direction.
                 </p>
               </div>
             </div>
@@ -163,4 +162,4 @@ function Who() {
   );
 }
 
-export default Who
+export default Who;

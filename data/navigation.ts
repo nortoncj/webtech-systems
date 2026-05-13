@@ -16,9 +16,17 @@ const navigation: { name: string; href: string }[] = [
     href: "/#reviews",
   },
   {
+    name: "About",
+    href: "/#about",
+  },
+  {
     name: "Who We Serve",
     href: "/#who-we-serve",
   },
+  // {
+  //   name: "FAQ",
+  //   href: "/#faq",
+  // },
 ];
 
 const services: { name: string; href: string }[] = [

@@ -1,4 +1,5 @@
 import Footer from "@/components/footer";
+import About from "@/components/home/about";
 import CaseStudy from "@/components/home/case-study";
 import Contact from "@/components/home/contact";
 import Hero from "@/components/home/hero";
@@ -27,6 +28,7 @@ export default function Home() {
       <CaseStudy />
       <Who />
       <Reviews />
+      <About />
       <Contact />
     </>
   );

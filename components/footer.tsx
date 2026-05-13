@@ -7,6 +7,7 @@ import { socials } from "@data/socials";
 import { contact, navigation, services } from "@/data/navigation";
 
 function Footer() {
+  const currentYear = new Date().getFullYear();
   return (
     <footer className="wn-footer" aria-labelledby="wn-footer-title">
       <div className="wn-container">
@@ -114,8 +115,8 @@ function Footer() {
 
           <div className="wn-footer__bottom">
             <p>
-              © <span className="wn-current-year"></span> Webtech Ninjas. All
-              rights reserved.
+              © <span className="wn-current-year">{currentYear}</span> Webtech
+              Ninjas. All rights reserved.
             </p>
 
             <div className="wn-footer__bottom-links">

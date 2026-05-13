@@ -19,8 +19,8 @@ function Hero() {
             </div>
 
             <h1 className="wn-hero-upgraded__title">
-              Clean digital systems built for
-              <span>real business growth</span>
+              Performance-driven 
+              <span>web systems</span>
             </h1>
 
             <p className="wn-hero-upgraded__text">
