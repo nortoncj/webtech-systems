@@ -11,6 +11,7 @@ import Who from "@/components/home/who-we-serve";
 import TopNav from "@/components/top-nav";
 import { buildMetadata } from "@/libs/seo";
 import Image from "next/image";
+import img from "@img/thumbnails/about_headshot.webp"
 
 export const metadata = buildMetadata({
   title: "Webtech Ninjas",
@@ -28,7 +29,7 @@ export default function Home() {
       <CaseStudy />
       <Who />
       <Reviews />
-      <About />
+      <About photoSrc={img.src} />
       <Contact />
     </>
   );
