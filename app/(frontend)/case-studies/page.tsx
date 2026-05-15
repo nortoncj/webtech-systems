@@ -2,6 +2,7 @@ import React from 'react'
 import { buildMetadata } from '@/libs/seo';
 import { getCaseStudies } from '@/sanity/sanity-utils';
 import CaseStudiesList from '@/components/case-studies/caseStudiesList';
+import IntakeForm from '@/components/partials/intakeForm';
 
 
 
@@ -16,6 +17,9 @@ export const revalidate = 3600; // cache 1 hr
 export default async function CaseStudiesPage() {
     const caseStudies = await getCaseStudies();
   return (
+    <>
+    <IntakeForm />
     <CaseStudiesList caseStudies={caseStudies} />
+    </>
   )
 }
