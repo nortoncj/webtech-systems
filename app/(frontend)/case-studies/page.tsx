@@ -18,7 +18,7 @@ export default async function CaseStudiesPage() {
     const caseStudies = await getCaseStudies();
   return (
     <>
-    <IntakeForm />
+    {/* <IntakeForm /> */}
     <CaseStudiesList caseStudies={caseStudies} />
     </>
   )
