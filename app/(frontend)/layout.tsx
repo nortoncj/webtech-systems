@@ -11,6 +11,20 @@ function Frontendlayout({
   const clarityId = process.env.NEXT_PUBLIC_CLARITY_ID;
   return (
     <>
+      {/* Google Tag Manager */}
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-P3VJZQ9VNG"
+        strategy="afterInteractive"
+      />
+
+      <Script id="gtag-init" strategy="afterInteractive">
+        {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-P3VJZQ9VNG');
+          `}
+      </Script>
       {clarityId && (
         <Script id="ms-clarity" strategy="afterInteractive">
           {`

@@ -1,0 +1,55 @@
+// Color variables
+const colors = {
+  charcoal: '#1F2430',
+  offWhite: '#F8F7F4',
+  white: '#FFFFFF',
+  indigo: '#4F46E5',
+  softPurple: '#8B5CF6',
+  lavender: '#F3F0FF'
+}
+
+// Form container
+background: colors.offWhite
+padding: 48px (desktop), 24px (mobile)
+max-width: 600px
+margin: 0 auto
+border-radius: 12px
+
+// Input fields
+background: colors.white
+border: 1px solid rgba(31, 36, 48, 0.15)
+border-radius: 8px
+padding: 14px 16px
+font-family: Inter
+font-size: 16px
+color: colors.charcoal
+
+// Focus state
+border-color: colors.indigo
+outline: none
+box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1)
+
+// Labels
+font-family: Inter
+font-weight: 500
+font-size: 14px
+color: colors.charcoal
+margin-bottom: 8px
+
+// Submit button
+background: colors.indigo
+color: colors.white
+font-family: Inter or Manrope
+font-weight: 600
+font-size: 16px
+padding: 16px 32px
+border-radius: 8px
+border: none
+cursor: pointer
+
+// Button hover
+background: #4338CA (slightly darker indigo)
+transition: background 0.2s ease
+
+
+border-color: #DC2626 (red)

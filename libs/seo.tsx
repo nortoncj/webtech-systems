@@ -36,6 +36,7 @@ export function buildMetadata({
       "google-site-verification": "YqzMHIzOgPMFfzOKYOZBnVOccDAZ1jdaJ_qHKcmI5x0",
       "msvalidate.01": "60B32BAF819A3A3DD7BD39D7BCDBDA21",
     },
+    
 
     // -------------------------
     // 🟦 OPEN GRAPH
