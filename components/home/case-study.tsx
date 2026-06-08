@@ -252,7 +252,7 @@ function CaseStudy() {
 
           <div className="wn-case-v2__footer-actions">
             <Link
-              href="https://calendar.app.google/X8GheJdXzBvZ3Spu9"
+              href="/contact"
               className="wn-btn wn-btn--primary"
             >
               Book a Strategy Call

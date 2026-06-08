@@ -193,7 +193,7 @@ export default function About({ photoSrc }: MeetChrisProps) {
             {/* CTA */}
             <div className="flex flex-col gap-3 border-t border-[#1F2430]/8 pt-6 sm:flex-row">
               <Link
-                href="https://calendar.app.google/X8GheJdXzBvZ3Spu9"
+                href="/contact"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center rounded-[10px] bg-indigo-600 px-6 py-3 text-sm font-semibold text-white transition-colors duration-150 hover:bg-indigo-700"

@@ -102,7 +102,7 @@ function Footer() {
 
             <div className="wn-footer__cta-actions">
               <Link
-                href="https://calendar.app.google/X8GheJdXzBvZ3Spu9"
+                href="/contact"
                 className="wn-btn wn-btn--primary"
               >
                 Book a Call

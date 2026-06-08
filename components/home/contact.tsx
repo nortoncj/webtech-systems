@@ -31,7 +31,7 @@ function Contact() {
 
             <div className="wn-cta-v2__actions">
               <Link
-                href="https://calendar.app.google/X8GheJdXzBvZ3Spu9"
+                href="/contact"
                 className="wn-btn wn-btn--primary"
               >
                 Book a Strategy Call
@@ -128,7 +128,7 @@ function Contact() {
                 </div>
 
                 <a
-                  href="https://calendar.app.google/X8GheJdXzBvZ3Spu9"
+                  href="/contact"
                   className="wn-cta-v2__link"
                 >
                   Start the conversation

@@ -141,7 +141,7 @@ function Reviews() {
 
           <div className="wn-testimonials-v2__footer-actions">
             <Link
-              href="https://calendar.app.google/X8GheJdXzBvZ3Spu9"
+              href="/contact"
               className="wn-btn wn-btn--primary"
               >Book a Strategy Call</Link>
             <Link href="#portfolio" className="wn-btn wn-btn--secondary"

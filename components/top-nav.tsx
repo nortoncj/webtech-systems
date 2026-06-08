@@ -79,7 +79,7 @@ function TopNav() {
             ))}
             <li>
               <Link
-                href="https://calendar.app.google/X8GheJdXzBvZ3Spu9"
+                href="/contact"
                 className="wn-mobile-menu__cta"
                 onClick={() => setOpen(false)}
               >
