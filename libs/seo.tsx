@@ -6,6 +6,7 @@ type MetadataInput = {
   keywords?: string[];
 };
 
+
 export function buildMetadata({
   title,
   description,
@@ -17,7 +18,7 @@ export function buildMetadata({
 
   const fullDescription =
     description ||
-    "Webtech Ninjas is a leading web development agency specializing in creating innovative and high-performing websites and applications.";
+    "Bilingual, phone-first websites that help home care agencies in Sarasota and Orlando hire caregivers and win families.";
 
   // Ensure absolute OG image URL
   const absoluteImage = image.startsWith("http") ? image : `${url}${image}`;

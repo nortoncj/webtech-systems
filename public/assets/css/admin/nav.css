@@ -1,0 +1,103 @@
+/* ---- replaces the .side block in @css/admin/nav.css ---- */
+
+.side {
+  width: 244px; flex-shrink: 0; background: #fff;
+  border-right: 1px solid var(--line);
+  display: flex; flex-direction: column; padding: 22px 16px;
+  height:100vh; position: sticky; top: 0; z-index: 1;
+}
+
+.mark { display: flex; align-items: center; gap: 11px; padding: 0 6px; margin-bottom: 26px; }
+.glyph { width: 38px; height: 38px; flex-shrink: 0; }
+.wordmark {
+  font-family: 'Manrope', sans-serif; font-weight: 700;
+  font-size: 15px; line-height: 1.15; letter-spacing: .06em;
+}
+
+/* nav scrolls on short screens so the user chip stays pinned */
+.navscroll { flex: 1; overflow-y: auto; margin: 0 -4px; padding: 0 4px; }
+.navscroll::-webkit-scrollbar { width: 0; }
+
+.navgroup { margin-bottom: 2px; }
+
+.navitem {
+  display: flex; align-items: center; gap: 12px; width: 100%;
+  padding: 11px 12px; border-radius: 10px; color: var(--mut);
+  font-weight: 500; text-align: left;
+  border-left: 3px solid transparent; transition: background .12s, color .12s;
+}
+.navitem > span:first-of-type { margin-right: auto; }
+.navitem:hover { background: #FAFAF9; }
+.navitem.on { background: var(--lav); color: var(--ind); border-left-color: var(--ind); }
+/* parent of the active child: colored text, no fill, so the child owns the highlight */
+.navitem.ingroup:not(.on) { color: var(--char); }
+
+.navcaret { flex-shrink: 0; transition: transform .18s ease; opacity: .55; }
+.navcaret.open { transform: rotate(180deg); }
+
+.navbadge {
+  flex-shrink: 0; min-width: 19px; height: 19px; padding: 0 6px;
+  border-radius: 10px; background: var(--ind); color: #fff;
+  font-size: 11px; font-weight: 600;
+  display: inline-grid; place-items: center;
+}
+.navbadge.sub { background: #E4E1FB; color: var(--ind); }
+
+/* height animation without measuring anything in JS */
+.subwrap {
+  display: grid; grid-template-rows: 0fr;
+  transition: grid-template-rows .2s ease;
+}
+.subwrap.open { grid-template-rows: 1fr; }
+.subinner { overflow: hidden; min-height: 0; }
+
+.subitem {
+  display: flex; align-items: center; width: 100%;
+  padding: 8px 12px 8px 46px; border-radius: 9px;
+  color: var(--mut); font-size: 13.5px; font-weight: 500;
+  text-align: left; position: relative;
+}
+.subitem > span:first-child { margin-right: auto; }
+/* the connecting rail */
+.subitem::before {
+  content: ''; position: absolute; left: 25px; top: 0; bottom: 0;
+  width: 1px; background: var(--line);
+}
+.subinner .subitem:first-child::before { top: 4px; }
+.subinner .subitem:last-child::before { bottom: 4px; }
+.subitem::after {
+  content: ''; position: absolute; left: 22px; top: 50%;
+  width: 7px; height: 7px; border-radius: 50%;
+  background: transparent; transform: translateY(-50%);
+  transition: background .12s;
+}
+.subitem:hover { background: #FAFAF9; color: var(--char); }
+.subitem.on { color: var(--ind); font-weight: 600; }
+.subitem.on::after { background: var(--ind); }
+
+.who {
+  margin-top: 14px; display: flex; align-items: center; gap: 11px;
+  padding: 12px; border: 1px solid var(--line); border-radius: 12px; width: 100%;
+}
+.avatar {
+  width: 34px; height: 34px; border-radius: 50%;
+  background: var(--char); color: #fff;
+  display: grid; place-items: center;
+  font-size: 12px; font-weight: 600; flex-shrink: 0;
+}
+
+/* ---- collapsed rail ---- */
+@media (max-width: 900px) {
+  .side { width: 70px; padding: 22px 10px; }
+  .wordmark,
+  .who span,
+  .navitem > span,
+  .navcaret,
+  .subwrap { display: none; }
+  .navitem { justify-content: center; padding: 12px 0; }
+  .navbadge {
+    position: absolute; top: 6px; right: 10px;
+    min-width: 15px; height: 15px; padding: 0 4px; font-size: 10px;
+  }
+  .navgroup { position: relative; }
+}

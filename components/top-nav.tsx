@@ -54,7 +54,7 @@ function TopNav() {
 
           <div className="wn-header__actions">
             <Link
-              href="https://calendar.app.google/X8GheJdXzBvZ3Spu9"
+              href="/contact"
               className="wn-btn wn-btn--primary wn-header__cta"
             >
               Book a Call

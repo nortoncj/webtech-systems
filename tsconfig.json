@@ -23,7 +23,7 @@
       "@img/*": ["./public/assets/img/*"],
       "@css/*": ["./public/assets/css/*"],
       "@components/*": ["./components/*"],
-      "@lib/*": ["./lib/*"],
+      "@lib/*": ["./libs/*"],
       "@data/*": ["./data/*"]
     }
   },

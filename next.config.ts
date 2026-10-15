@@ -11,12 +11,25 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
+        hostname: "images.pexels.com",
+        pathname: "/photos/**",
+      },
+      {
+        protocol: "https",
         hostname: "picsum.photos",
       },
       {
         protocol: "https",
         hostname: "images.unsplash.com",
-      }
+      },
+      {
+        protocol: "https",
+        hostname: "fal.media",
+      },
+      {
+        protocol: "https",
+        hostname: "v3.fal.media",
+      },
     ],
     formats: ["image/webp", "image/avif"],
 

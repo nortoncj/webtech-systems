@@ -1,7 +1,11 @@
-import Footer from "@/components/footer";
-import TopNav from "@/components/top-nav";
 import Script from "next/script";
 import React from "react";
+import { Footer, MobileCtaBar, TopNav } from "@/components/home";
+import { buildMetadata } from "@/libs/seo";
+
+export const metadata = buildMetadata({
+  
+});
 
 function Frontendlayout({
   children,

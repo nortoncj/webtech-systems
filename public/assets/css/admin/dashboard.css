@@ -1,0 +1,62 @@
+/* ---- append to admin.css ---- */
+
+.dashgrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  align-items: start;
+}
+
+.chartcard { padding: 18px 20px 20px; }
+
+.cardhead { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 4px; }
+.cardhead h2 {
+  font-family: 'Manrope', sans-serif;
+  font-size: 16px; font-weight: 600; margin: 0;
+}
+.cardhead p { margin: 3px 0 0; font-size: 12.5px; }
+.cardhead > div:first-child { margin-right: auto; min-width: 0; }
+
+.seeall {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 12.5px; font-weight: 500; color: var(--ind);
+  flex-shrink: 0; text-decoration: none;
+}
+.seeall:hover { text-decoration: underline; }
+
+.legend { display: flex; gap: 16px; margin-top: 12px; font-size: 12.5px; color: var(--mut); }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.legend i { width: 9px; height: 9px; border-radius: 3px; display: block; }
+
+.tasklist { margin-top: 8px; }
+.task {
+  display: flex; align-items: flex-start; gap: 11px;
+  padding: 11px 0; border-bottom: 1px solid var(--line2);
+  text-decoration: none; color: inherit;
+}
+.task:last-child { border-bottom: none; }
+.task:hover .tasktitle { color: var(--ind); }
+.taskicon {
+  width: 26px; height: 26px; border-radius: 8px; flex-shrink: 0;
+  display: grid; place-items: center; margin-top: 1px;
+}
+.tasktitle { display: block; font-size: 13.5px; font-weight: 500; line-height: 1.4; }
+.taskmeta { display: block; font-size: 12.5px; margin-top: 2px; }
+
+.feed { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 28px; margin-top: 6px; }
+.feeditem {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 0; border-bottom: 1px solid var(--line2);
+}
+.feeddot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+
+@media (max-width: 1180px) {
+  .dashgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .dashgrid > .panel[style*="span 2"] { grid-column: span 2 !important; }
+}
+
+@media (max-width: 820px) {
+  .dashgrid { grid-template-columns: minmax(0, 1fr); }
+  .dashgrid > .panel[style*="span 2"] { grid-column: span 1 !important; }
+  .feed { grid-template-columns: minmax(0, 1fr); }
+}
